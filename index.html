@@ -198,6 +198,11 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 20px; margin-bottom: 20px;
   }
+  .project-screenshot {
+    width: 100%; height: 180px; object-fit: cover; object-position: top;
+    border-radius: 10px; margin-bottom: 20px; display: block;
+    border: 1px solid var(--border);
+  }
   .project-title {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 18px; font-weight: 600; margin-bottom: 10px;
@@ -379,6 +384,19 @@
           <span class="tag">APIs</span>
         </div>
         <a href="https://github.com/farhan-android" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <img src="screenshots/weather_details.jpeg" alt="Weatherly app screenshot" class="project-screenshot">
+        <div class="project-title">Weatherly</div>
+        <p class="project-desc">A sleek Flutter weather app that fetches live weather data for any city. Users can search a location and instantly view current temperature and conditions in a clean, card-based UI.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Weather API</span>
+          <span class="tag">Cross-platform</span>
+        </div>
+        <a href="https://github.com/farhan-android/Weatherly" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
     </div>
