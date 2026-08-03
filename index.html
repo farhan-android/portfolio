@@ -3,555 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farhan Ali — Android & Flutter Developer</title>
-<meta name="description" content="Farhan Ali — Android & Flutter developer building apps with Kotlin, Flutter, Firebase and REST APIs, now learning Node.js, Express.js and PostgreSQL.">
+<title>Farhan Ali — Mobile &amp; Full-Stack Developer</title>
+<meta name="description" content="Farhan Ali — Mobile & Full-Stack Developer. Flutter, Firebase, Node.js, Express and PostgreSQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #FAFAFC;
-    --surface: #FFFFFF;
-    --ink: #191B29;
-    --muted: #6B7089;
-    --line: #ECEDF3;
-    --primary: #5B5FEF;
-    --primary-dark: #4347C4;
-    --primary-light: #EEF0FF;
-    --coral: #FF6B6B;
-    --coral-light: #FFF0EF;
-    --green: #1FAA6D;
-    --green-light: #E9FBF2;
-    --amber: #F5A623;
-    --amber-light: #FFF6E5;
-    --shadow: 0 12px 32px -14px rgba(24,26,45,0.18);
-    --shadow-sm: 0 2px 10px rgba(24,26,45,0.07);
-    --radius-lg: 26px;
-    --radius-md: 18px;
-    --radius-sm: 12px;
-    --font-display: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 15.5px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display: block; }
-  ::selection { background: var(--primary); color: #fff; }
-  :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
-
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 6%; }
-  section { padding: 100px 0; }
-
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-display); font-weight: 700; font-size: 12.5px;
-    color: var(--primary); background: var(--primary-light);
-    padding: 6px 14px; border-radius: 20px; margin-bottom: 16px;
-    letter-spacing: 0.02em; text-transform: uppercase;
-  }
-  .section-title {
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -0.02em;
-    margin-bottom: 10px;
-  }
-  .section-sub { color: var(--muted); font-size: 15.5px; margin-bottom: 48px; max-width: 560px; }
-
-  .grad-text {
-    background: linear-gradient(135deg, var(--primary), var(--coral));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ===== NAV ===== */
-  nav.floatnav {
-    position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
-    z-index: 200; width: min(92%, 880px);
-    background: rgba(255,255,255,0.85); backdrop-filter: blur(14px);
-    border: 1px solid var(--line); border-radius: 999px;
-    box-shadow: var(--shadow-sm);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 10px 10px 22px;
-  }
-  .nav-logo {
-    font-family: var(--font-display); font-weight: 800; font-size: 16px;
-  }
-  .nav-links { display: flex; gap: 4px; list-style: none; }
-  .nav-links a {
-    color: var(--muted); font-size: 14px; font-weight: 600;
-    padding: 8px 14px; border-radius: 999px; transition: all 0.2s;
-  }
-  .nav-links a:hover { color: var(--ink); background: var(--bg); }
-  .nav-cta {
-    font-family: var(--font-body); font-weight: 700; font-size: 13.5px;
-    background: var(--ink); color: #fff; padding: 10px 20px; border-radius: 999px;
-    transition: transform 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: var(--primary); transform: translateY(-1px); }
-  .nav-mobile-links { display: none; }
-
-  /* ===== BUTTONS ===== */
-  .btn {
-    font-family: var(--font-body); font-weight: 700; font-size: 14.5px;
-    padding: 13px 26px; border-radius: 999px;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-    border: 1px solid transparent; cursor: pointer;
-  }
-  .btn-primary { background: var(--primary); color: #fff; }
-  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow); }
-  .btn-outline { border-color: var(--line); background: var(--surface); color: var(--ink); }
-  .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-  .btn svg { width: 16px; height: 16px; }
-
-  /* ===== HERO ===== */
-  #home { padding-top: 168px; padding-bottom: 80px; }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 13.5px; font-weight: 600; color: var(--ink);
-    background: var(--surface); border: 1px solid var(--line);
-    padding: 7px 16px; border-radius: 999px; margin-bottom: 24px; box-shadow: var(--shadow-sm);
-  }
-  .hero-text h1 {
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(34px, 4.6vw, 50px); line-height: 1.12; letter-spacing: -0.02em;
-    margin-bottom: 12px;
-  }
-  .hero-role {
-    font-family: var(--font-display); font-weight: 700; font-size: 19px;
-    color: var(--muted); margin-bottom: 18px;
-  }
-  .hero-bio { color: var(--muted); max-width: 480px; margin-bottom: 32px; }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
-  .hero-social { display: flex; gap: 12px; }
-  .social-icon {
-    width: 42px; height: 42px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
-    transition: all 0.2s; color: var(--ink);
-  }
-  .social-icon:hover { background: var(--primary); border-color: var(--primary); color: #fff; transform: translateY(-2px); }
-  .social-icon svg { width: 18px; height: 18px; }
-
-  .hero-photo { position: relative; display: flex; align-items: center; justify-content: center; }
-  .blob {
-    position: absolute; border-radius: 50%; filter: blur(4px); opacity: 0.55; z-index: 0;
-  }
-  .blob-1 { width: 340px; height: 340px; background: linear-gradient(135deg, var(--primary-light), #DCDEFF); top: -30px; right: 10px; }
-  .blob-2 { width: 220px; height: 220px; background: linear-gradient(135deg, var(--coral-light), #FFDCDA); bottom: -20px; left: -10px; }
-  .photo-card {
-    position: relative; z-index: 1; width: 320px; height: 380px;
-    border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: var(--shadow); border: 6px solid var(--surface);
-    background: var(--surface);
-  }
-  .photo-card img { width: 100%; height: 100%; object-fit: cover; }
-  .float-badge {
-    position: absolute; z-index: 2; background: var(--surface);
-    border: 1px solid var(--line); box-shadow: var(--shadow);
-    border-radius: var(--radius-sm); padding: 10px 16px;
-    font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px;
-  }
-  .badge-1 { top: 10%; left: -8%; }
-  .badge-2 { bottom: 8%; right: -10%; }
-  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-
-  /* ===== ABOUT ===== */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-  .about-text p { color: var(--muted); margin-bottom: 16px; }
-  .about-text p:last-child { margin-bottom: 0; }
-  .facts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .fact-card {
-    border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow-sm);
-  }
-  .fact-card.c1 { background: var(--primary-light); }
-  .fact-card.c2 { background: var(--coral-light); }
-  .fact-card.c3 { background: var(--amber-light); }
-  .fact-card.c4 { background: var(--green-light); }
-  .fact-icon { font-size: 22px; margin-bottom: 10px; display: block; }
-  .fact-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 4px; }
-  .fact-value { font-family: var(--font-display); font-weight: 700; font-size: 15.5px; }
-
-  /* ===== PROJECTS ===== */
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .project-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
-    overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3px; background: var(--line); }
-  .gallery img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 9/16; cursor: zoom-in; transition: opacity 0.15s; }
-  .gallery img:hover { opacity: 0.88; }
-  .gallery-side { display: grid; grid-template-rows: 1fr 1fr; gap: 3px; }
-  .no-shot {
-    aspect-ratio: 16/8; display: flex; align-items: center; justify-content: center;
-    font-size: 44px; background: linear-gradient(135deg, var(--primary-light), var(--coral-light));
-  }
-  .project-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
-  .project-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 8px; }
-  .project-desc { color: var(--muted); font-size: 14px; margin-bottom: 16px; flex-grow: 1; }
-  .tag-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px; }
-  .tag {
-    font-size: 11.5px; font-weight: 600; color: var(--primary-dark);
-    background: var(--primary-light); padding: 4px 11px; border-radius: 999px;
-  }
-  .project-link {
-    font-weight: 700; font-size: 13.5px; color: var(--ink);
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  .project-link svg { width: 14px; height: 14px; transition: transform 0.15s; }
-  .project-card:hover .project-link svg { transform: translate(2px, -2px); }
-
-  /* ===== SKILLS ===== */
-  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .skill-cat {
-    border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm);
-  }
-  .skill-cat.k1 { background: var(--primary-light); }
-  .skill-cat.k2 { background: var(--coral-light); }
-  .skill-cat.k3 { background: var(--amber-light); }
-  .skill-cat.k4 { background: var(--green-light); }
-  .skill-cat-title {
-    font-family: var(--font-display); font-weight: 700; font-size: 15px;
-    display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
-  }
-  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
-  .chip {
-    background: var(--surface); font-size: 13px; font-weight: 600;
-    padding: 7px 14px; border-radius: 999px; box-shadow: var(--shadow-sm);
-  }
-
-  /* ===== CONTACT ===== */
-  .contact-card {
-    background: linear-gradient(135deg, var(--primary), #7B4FE0);
-    border-radius: var(--radius-lg); padding: 64px 6%; text-align: center;
-    color: #fff; position: relative; overflow: hidden;
-  }
-  .contact-card::before {
-    content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%;
-    background: rgba(255,255,255,0.08); top: -100px; right: -60px;
-  }
-  .contact-card::after {
-    content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%;
-    background: rgba(255,255,255,0.07); bottom: -80px; left: -40px;
-  }
-  .contact-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 12px; position: relative; }
-  .contact-sub { opacity: 0.9; margin-bottom: 34px; position: relative; max-width: 460px; margin-left: auto; margin-right: auto; }
-  .contact-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
-  .contact-btns .btn-primary { background: #fff; color: var(--primary); }
-  .contact-btns .btn-primary:hover { background: #fff; opacity: 0.92; }
-  .contact-btns .btn-outline { border-color: rgba(255,255,255,0.4); background: transparent; color: #fff; }
-  .contact-btns .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-
-  footer {
-    padding: 36px 6%; text-align: center; color: var(--muted); font-size: 13.5px;
-  }
-
-  /* ===== LIGHTBOX ===== */
-  .lightbox {
-    position: fixed; inset: 0; background: rgba(15,16,26,0.88); z-index: 999;
-    display: none; align-items: center; justify-content: center; padding: 40px;
-    backdrop-filter: blur(4px);
-  }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-height: 88vh; max-width: 92vw; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-  .lightbox-close {
-    position: absolute; top: 24px; right: 28px; width: 42px; height: 42px; border-radius: 50%;
-    background: rgba(255,255,255,0.12); color: #fff; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; border: none;
-  }
-  .lightbox-close svg { width: 20px; height: 20px; }
-
-  @media (max-width: 900px) {
-    .hero-grid, .about-grid { grid-template-columns: 1fr; }
-    .hero-photo { order: -1; margin-bottom: 10px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .facts-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    section { padding: 70px 0; }
-    #home { padding-top: 130px; }
-    .photo-card { width: 260px; height: 320px; }
-    .badge-1, .badge-2 { font-size: 11.5px; padding: 8px 12px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="floatnav">
-  <div class="nav-logo">Farhan Ali</div>
+<div class="noise" aria-hidden="true"></div>
+
+<nav>
+  <a href="#top" class="nav-logo">farhan<span>.</span>dev</a>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">~/about</a></li>
+    <li><a href="#projects">~/projects</a></li>
+    <li><a href="#skills">~/skills</a></li>
+    <li><a href="#contact">~/contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Let's talk</a>
+  <a href="#contact" class="nav-cta">Get in touch</a>
 </nav>
 
-<main>
+<main id="top">
 
-<section id="home">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <span class="hero-badge">👋 Available for internships</span>
-      <h1>Hi, I'm <span class="grad-text">Farhan Ali</span></h1>
-      <p class="hero-role">Android &amp; Flutter Developer</p>
-      <p class="hero-bio">I build mobile apps with Kotlin and Flutter, backed by Firebase and REST APIs. I'm now learning Node.js, Express.js, and PostgreSQL so I can build and understand the backend behind the apps I ship.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">
-          View my work
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="mailto:farhanalifarhan57218140@gmail.com" class="btn btn-outline">Say hello</a>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">Open to opportunities</div>
+        <h1 class="hero-name">Farhan Ali</h1>
+        <p class="hero-role">Mobile &amp; Full-Stack Developer</p>
+        <p class="hero-sub">
+          I build cross-platform mobile apps with Flutter and Firebase, and
+          REST APIs with Node.js, Express and PostgreSQL to power them.
+          Currently a Flutter Developer Intern at <strong>Internee.pk</strong>,
+          based in Multan, Pakistan.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View my work</a>
+          <a href="https://github.com/farhan-android" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+        </div>
       </div>
-      <div class="hero-social">
-        <a href="https://github.com/farhan-android" target="_blank" class="social-icon" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.87 8.38 6.84 9.74.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
-        </a>
-        <a href="mailto:farhanalifarhan57218140@gmail.com" class="social-icon" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
-        </a>
-        <a href="tel:+923122515646" class="social-icon" aria-label="Phone">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
-        </a>
+
+      <div class="hero-terminal" role="img" aria-label="Terminal window showing a simulated build log">
+        <div class="terminal-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">farhan@dev — zsh</span>
+        </div>
+        <pre class="terminal-body" id="terminalBody" aria-hidden="true"></pre>
       </div>
     </div>
+  </section>
 
-    <div class="hero-photo">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="photo-card">
-        <img src="assets/profile.jpeg" alt="Farhan Ali — Android and Flutter Developer">
-      </div>
-      <div class="float-badge badge-1"><span class="badge-dot"></span>5+ Projects Shipped</div>
-      <div class="float-badge badge-2">📍 Multan, Pakistan</div>
-    </div>
-  </div>
-</section>
+  <hr class="divider">
 
-<section id="about">
-  <div class="wrap">
-    <span class="eyebrow">About Me</span>
-    <h2 class="section-title">A bit about my journey</h2>
-    <p class="section-sub">Mobile-first, backend-curious, and always shipping something real.</p>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm an Android and Flutter developer working mainly in Kotlin and Dart. I build real applications — using Firebase, Firestore, and REST APIs — and I care about interfaces that are actually pleasant to use, not just functional.</p>
-        <p>My biggest project so far is a zone-based fire monitoring system with collaborative decision logic between sensor zones, real-time alerts, and SMS notifications through Twilio. It's where I learned to think about state, timing, and edge cases, not just UI.</p>
-        <p>I'm now going one layer deeper: learning Node.js, Express.js, and PostgreSQL with JavaScript so I can build and reason about the backend services my apps depend on, instead of treating them as a black box.</p>
-        <p>I'm currently looking for an internship where I can contribute from day one and keep growing across the stack.</p>
-      </div>
-      <div class="facts-grid">
-        <div class="fact-card c1">
-          <span class="fact-icon">📍</span>
-          <div class="fact-label">Location</div>
-          <div class="fact-value">Multan, Pakistan</div>
-        </div>
-        <div class="fact-card c2">
-          <span class="fact-icon">📱</span>
-          <div class="fact-label">Primary Stack</div>
-          <div class="fact-value">Flutter &amp; Kotlin</div>
-        </div>
-        <div class="fact-card c3">
-          <span class="fact-icon">🌱</span>
-          <div class="fact-label">Learning Now</div>
-          <div class="fact-value">Node.js, Express, PostgreSQL</div>
-        </div>
-        <div class="fact-card c4">
-          <span class="fact-icon">✅</span>
-          <div class="fact-label">Status</div>
-          <div class="fact-value">Open to Internship</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-eyebrow">~/about</div>
+      <h2 class="section-title">About <span>me</span></h2>
 
-<section id="projects">
-  <div class="wrap">
-    <span class="eyebrow">Projects</span>
-    <h2 class="section-title">Things I've built</h2>
-    <p class="section-sub">5 apps, from IoT fire alerts to full CRUD apps with real screens — click a screenshot to zoom in.</p>
-    <div class="projects-grid">
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm an Android &amp; Flutter developer who recently graduated with a
+            BS in Information Technology from the University of Education, Lahore.
+            My focus is building real, working apps — not just prototypes —
+            using Kotlin, Dart, and Firebase.</p>
+          <p>I've since expanded into backend development with Node.js, Express
+            and PostgreSQL, so I can build and reason about a product end to
+            end, not just the client side.</p>
+          <p>I'm currently a Flutter Developer Intern at Internee.pk, and
+            actively looking for full-time opportunities.</p>
+        </div>
 
-      <div class="project-card">
-        <div class="gallery">
-          <img class="gallery-thumb" src="assets/projects/weather-app/1-current-weather.jpeg" data-full="assets/projects/weather-app/1-current-weather.jpeg" alt="Weather Forecasting App — current weather screen">
-          <div class="gallery-side">
-            <img class="gallery-thumb" src="assets/projects/weather-app/2-search.jpeg" data-full="assets/projects/weather-app/2-search.jpeg" alt="Weather Forecasting App — search screen">
-            <img class="gallery-thumb" src="assets/projects/weather-app/3-recent-search.jpeg" data-full="assets/projects/weather-app/3-recent-search.jpeg" alt="Weather Forecasting App — recent searches">
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Projects shipped</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">Flutter</span>
+            <span class="stat-label">Primary framework</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">Node.js</span>
+            <span class="stat-label">Backend of choice</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">Multan</span>
+            <span class="stat-label">Based in, PK</span>
           </div>
         </div>
-        <div class="project-body">
-          <div class="project-title">Weather Forecasting App</div>
-          <p class="project-desc">Live weather lookup by city with temperature, condition, humidity and wind — plus recent searches for quick access.</p>
-          <div class="tag-row"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">REST API</span></div>
-          <a href="https://github.com/farhan-android/weather-forecasting-app" target="_blank" class="project-link">View repository
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-          </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-eyebrow">~/projects</div>
+      <h2 class="section-title">Selected <span>work</span></h2>
+      <p class="section-note">Loaded from <code>data/projects.json</code> via <code>fetch()</code> — not hardcoded into the page.</p>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Populated by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-eyebrow">~/skills</div>
+      <h2 class="section-title">What I <span>work with</span></h2>
+
+      <div class="skills-columns">
+        <div class="skills-group">
+          <h3>Mobile</h3>
+          <ul class="skill-list">
+            <li>Flutter &amp; Dart</li>
+            <li>Kotlin / Android</li>
+            <li>Riverpod &amp; GetX</li>
+            <li>Firebase Auth &amp; Firestore</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Backend</h3>
+          <ul class="skill-list">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>PostgreSQL</li>
+            <li>REST API design</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Tooling</h3>
+          <ul class="skill-list">
+            <li>Git &amp; GitHub</li>
+            <li>Android Studio / VS Code</li>
+            <li>Postman</li>
+            <li>Figma (UI handoff)</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="project-card">
-        <div class="gallery">
-          <img class="gallery-thumb" src="assets/projects/notes-app/1-home.jpeg" data-full="assets/projects/notes-app/1-home.jpeg" alt="Notes App — home screen">
-          <div class="gallery-side">
-            <img class="gallery-thumb" src="assets/projects/notes-app/2-add-note.jpeg" data-full="assets/projects/notes-app/2-add-note.jpeg" alt="Notes App — add note screen">
-            <img class="gallery-thumb" src="assets/projects/notes-app/3-dark-mode.jpeg" data-full="assets/projects/notes-app/3-dark-mode.jpeg" alt="Notes App — dark mode">
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-eyebrow">~/contact</div>
+      <h2 class="section-title">Let's <span>build something</span></h2>
+      <p class="section-note">This page is static, so the form below opens your email client directly with your message pre-filled — nothing is sent to a server.</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
           </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Notes App</div>
-          <p class="project-desc">A note-taking app with login, create/edit/delete flows, search, and full dark mode support — backed by Firebase.</p>
-          <div class="tag-row"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Dark Mode</span></div>
-          <a href="https://github.com/farhan-android/notes-app" target="_blank" class="project-link">View repository
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="gallery">
-          <img class="gallery-thumb" src="assets/projects/lms-app/1-home.jpeg" data-full="assets/projects/lms-app/1-home.jpeg" alt="LMS Learning App — home screen">
-          <div class="gallery-side">
-            <img class="gallery-thumb" src="assets/projects/lms-app/2-quiz.jpeg" data-full="assets/projects/lms-app/2-quiz.jpeg" alt="LMS Learning App — quiz screen">
-            <img class="gallery-thumb" src="assets/projects/lms-app/3-video-lecture.jpeg" data-full="assets/projects/lms-app/3-video-lecture.jpeg" alt="LMS Learning App — video lecture screen">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
           </div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">LMS Learning App</div>
-          <p class="project-desc">A learning management app with video lectures, quizzes with scored results, and course browsing for students.</p>
-          <div class="tag-row"><span class="tag">Flutter</span><span class="tag">Firestore</span><span class="tag">Auth</span></div>
-          <a href="https://github.com/farhan-android/lms-learning-app" target="_blank" class="project-link">View repository
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="submitBtn">Send message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-links">
+          <a href="mailto:farhanalifarhan57218140@gmail.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">farhanalifarhan57218140@gmail.com</span>
+          </a>
+          <a href="tel:+923122515646" class="contact-link">
+            <span class="contact-link-label">Phone</span>
+            <span class="contact-link-value">+92 312 2515646</span>
+          </a>
+          <a href="https://github.com/farhan-android" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">github.com/farhan-android</span>
           </a>
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="no-shot">🔥</div>
-        <div class="project-body">
-          <div class="project-title">Fire Monitoring App</div>
-          <p class="project-desc">Zone-based fire detection system with collaborative decision logic between sensor zones. Sends real-time alerts and notifies emergency contacts via Twilio SMS.</p>
-          <div class="tag-row"><span class="tag">Kotlin</span><span class="tag">Firebase</span><span class="tag">Twilio</span><span class="tag">IoT</span></div>
-          <a href="https://github.com/farhan-android/my-android-app" target="_blank" class="project-link">View repository
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="no-shot">📱</div>
-        <div class="project-body">
-          <div class="project-title">Net Rider App</div>
-          <p class="project-desc">An Android app built while working through digital skills coursework, focused on strengthening core Android fundamentals and clean UI patterns.</p>
-          <div class="tag-row"><span class="tag">Kotlin</span><span class="tag">Android Studio</span><span class="tag">UI Design</span></div>
-          <a href="https://github.com/farhan-android" target="_blank" class="project-link">View repository
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <span class="eyebrow">Skills</span>
-    <h2 class="section-title">What I work with</h2>
-    <p class="section-sub">The tools I reach for, grouped the way I actually use them.</p>
-    <div class="skills-grid">
-      <div class="skill-cat k1">
-        <div class="skill-cat-title">📱 Mobile Development</div>
-        <div class="chip-row">
-          <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Kotlin</span>
-          <span class="chip">Android Studio</span><span class="chip">UI Design</span>
-        </div>
-      </div>
-      <div class="skill-cat k2">
-        <div class="skill-cat-title">⚙️ Backend &amp; APIs</div>
-        <div class="chip-row">
-          <span class="chip">Node.js</span><span class="chip">Express.js</span>
-          <span class="chip">JavaScript</span><span class="chip">REST APIs</span>
-        </div>
-      </div>
-      <div class="skill-cat k3">
-        <div class="skill-cat-title">🗄️ Database &amp; Cloud</div>
-        <div class="chip-row">
-          <span class="chip">PostgreSQL</span><span class="chip">Firebase</span><span class="chip">Firestore</span>
-        </div>
-      </div>
-      <div class="skill-cat k4">
-        <div class="skill-cat-title">🛠️ Tools &amp; Practice</div>
-        <div class="chip-row">
-          <span class="chip">Git &amp; GitHub</span><span class="chip">Problem Solving</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-card">
-      <div class="contact-title">Let's build something together</div>
-      <p class="contact-sub">I'm actively looking for an Android/Flutter internship. Reach out — I'd love to talk.</p>
-      <div class="contact-btns">
-        <a href="mailto:farhanalifarhan57218140@gmail.com" class="btn btn-primary">✉ Email Me</a>
-        <a href="https://github.com/farhan-android" target="_blank" class="btn btn-outline">GitHub</a>
-        <a href="tel:+923122515646" class="btn btn-outline">📞 Call Me</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Farhan Ali · Android &amp; Flutter Developer · Multan, Pakistan</p>
+  <p>© 2026 Farhan Ali · Multan, Pakistan</p>
 </footer>
 
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-  </button>
-  <img id="lightboxImg" src="" alt="Screenshot preview">
-</div>
-
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  document.querySelectorAll('.gallery-thumb').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.dataset.full;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('open');
-    });
-  });
-  const closeLightbox = () => lightbox.classList.remove('open');
-  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

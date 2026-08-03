@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fire-alert-system",
+    "title": "AI-Powered Fire Prevention & Alert System",
+    "tagline": "Final Year Project",
+    "description": "A zone-based fire detection system combining IoT sensors, YOLOv8 image recognition, and an Android app. Detects fire risk in real time, sends Twilio SMS alerts to emergency contacts, and logs sensor data to Firebase for monitoring.",
+    "stack": ["Kotlin", "YOLOv8", "Firebase", "Twilio SMS", "IoT"],
+    "github": "https://github.com/farhan-android/my-android-app",
+    "live": "",
+    "order": 1
+  },
+  {
+    "id": "lms-learning-app",
+    "title": "LMS Learning App",
+    "tagline": "Internee.pk Internship — Task 1",
+    "description": "A Flutter learning management app with Firebase authentication, real-time course listings from Firestore, an integrated video player, and interactive quizzes with real-time scoring and progress tracking. Built with Riverpod and a clean, feature-based architecture.",
+    "stack": ["Flutter", "Riverpod", "Firebase", "Firestore", "REST API"],
+    "github": "https://github.com/farhan-android/lms-learning-app",
+    "live": "",
+    "order": 2
+  },
+  {
+    "id": "weatherly",
+    "title": "Weatherly",
+    "tagline": "Weather forecast app",
+    "description": "A Flutter weather app built with GetX state management, pulling live forecasts from the OpenWeatherMap REST API with a clean, minimal interface.",
+    "stack": ["Flutter", "GetX", "REST API", "OpenWeatherMap"],
+    "github": "https://github.com/farhan-android/Weatherly",
+    "live": "",
+    "order": 3
+  }
+]
