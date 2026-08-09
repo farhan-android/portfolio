@@ -1,32 +1,74 @@
 [
   {
-    "id": "fire-alert-system",
-    "title": "AI-Powered Fire Prevention & Alert System",
-    "tagline": "Final Year Project",
-    "description": "A zone-based fire detection system combining IoT sensors, YOLOv8 image recognition, and an Android app. Detects fire risk in real time, sends Twilio SMS alerts to emergency contacts, and logs sensor data to Firebase for monitoring.",
-    "stack": ["Kotlin", "YOLOv8", "Firebase", "Twilio SMS", "IoT"],
-    "github": "https://github.com/farhan-android/my-android-app",
+    "id": "expense-tracker-app",
+    "title": "Expense Tracker App",
+    "tagline": "Full-Stack — Flutter + Node.js/Express/PostgreSQL",
+    "description": "A personal finance app with a Flutter + Riverpod frontend and a self-built Node.js, Express and PostgreSQL backend for syncing transactions and categories across devices.",
+    "category": "Backend",
+    "stack": ["Flutter", "Riverpod", "Node.js", "Express.js", "PostgreSQL", "REST API"],
+    "github": "https://github.com/farhan-android/expense-tracker-app",
     "live": "",
+    "thumbnail": "",
     "order": 1
+  },
+  {
+    "id": "feedback-review-app",
+    "title": "Feedback & Review App",
+    "tagline": "Internee.pk Internship — Task 2",
+    "description": "A role-based feedback app — users submit ratings and reviews, while admins get a live dashboard with average ratings and a rating-distribution chart, all synced in real time through Firestore.",
+    "category": "Mobile",
+    "stack": ["Flutter", "Riverpod", "Firebase", "Firestore", "fl_chart"],
+    "github": "https://github.com/farhan-android/feedback-review-app",
+    "live": "",
+    "thumbnail": "",
+    "order": 2
   },
   {
     "id": "lms-learning-app",
     "title": "LMS Learning App",
     "tagline": "Internee.pk Internship — Task 1",
-    "description": "A Flutter learning management app with Firebase authentication, real-time course listings from Firestore, an integrated video player, and interactive quizzes with real-time scoring and progress tracking. Built with Riverpod and a clean, feature-based architecture.",
+    "description": "A Flutter learning management app with Firebase authentication, real-time course listings from Firestore, an integrated video player, and interactive quizzes with real-time scoring and progress tracking.",
+    "category": "Mobile",
     "stack": ["Flutter", "Riverpod", "Firebase", "Firestore", "REST API"],
     "github": "https://github.com/farhan-android/lms-learning-app",
     "live": "",
-    "order": 2
+    "thumbnail": "assets/projects/lms-app/thumb.jpeg",
+    "order": 3
+  },
+  {
+    "id": "fire-alert-system",
+    "title": "AI-Powered Fire Prevention & Alert System",
+    "tagline": "Final Year Project",
+    "description": "A zone-based fire detection system combining IoT sensors, YOLOv8 image recognition, and an Android app. Sends Twilio SMS alerts in real time and logs sensor data to Firebase.",
+    "category": "Mobile",
+    "stack": ["Kotlin", "YOLOv8", "Firebase", "Twilio SMS", "IoT"],
+    "github": "https://github.com/farhan-android/my-android-app",
+    "live": "",
+    "thumbnail": "",
+    "order": 4
+  },
+  {
+    "id": "notes-app",
+    "title": "Notes App",
+    "tagline": "Flutter productivity app",
+    "description": "A minimalist notes app for quickly capturing and organizing ideas, with a clean interface and a dark mode toggle for comfortable use at any time of day.",
+    "category": "Mobile",
+    "stack": ["Flutter", "Dart", "Local Storage"],
+    "github": "https://github.com/farhan-android/notes-app",
+    "live": "",
+    "thumbnail": "assets/projects/notes-app/thumb.jpeg",
+    "order": 5
   },
   {
     "id": "weatherly",
     "title": "Weatherly",
     "tagline": "Weather forecast app",
     "description": "A Flutter weather app built with GetX state management, pulling live forecasts from the OpenWeatherMap REST API with a clean, minimal interface.",
+    "category": "Mobile",
     "stack": ["Flutter", "GetX", "REST API", "OpenWeatherMap"],
     "github": "https://github.com/farhan-android/Weatherly",
     "live": "",
-    "order": 3
+    "thumbnail": "assets/projects/weather-app/thumb.jpeg",
+    "order": 6
   }
 ]

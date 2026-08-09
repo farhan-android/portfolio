@@ -3,109 +3,264 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farhan Ali — Mobile &amp; Full-Stack Developer</title>
-<meta name="description" content="Farhan Ali — Mobile & Full-Stack Developer. Flutter, Firebase, Node.js, Express and PostgreSQL.">
+<title>Farhan Ali — Flutter Full-Stack Developer</title>
+<meta name="description" content="Farhan Ali — Flutter Full-Stack Developer. Flutter, Firebase, Node.js, Express and PostgreSQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="noise" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+
+<!-- Availability banner -->
+<div class="top-banner">
+  <span class="dot-live"></span> Open to Flutter &amp; Full-Stack opportunities
+</div>
 
 <nav>
-  <a href="#top" class="nav-logo">farhan<span>.</span>dev</a>
+  <div class="nav-avatar">FA</div>
   <ul class="nav-links">
-    <li><a href="#about">~/about</a></li>
-    <li><a href="#projects">~/projects</a></li>
-    <li><a href="#skills">~/skills</a></li>
-    <li><a href="#contact">~/contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in touch</a>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<main id="top">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#stack">Tech Stack</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main>
 
   <!-- HERO -->
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-badge">Open to opportunities</div>
-        <h1 class="hero-name">Farhan Ali</h1>
-        <p class="hero-role">Mobile &amp; Full-Stack Developer</p>
+        <span class="eyebrow-badge">Flutter Full-Stack Developer</span>
+        <h1 class="hero-name">
+          <span id="typedName"></span><span class="cursor">|</span>
+        </h1>
         <p class="hero-sub">
-          I build cross-platform mobile apps with Flutter and Firebase, and
-          REST APIs with Node.js, Express and PostgreSQL to power them.
+          I build cross-platform mobile apps with Flutter &amp; Riverpod, backed
+          by REST APIs I write myself with Node.js, Express and PostgreSQL.
           Currently a Flutter Developer Intern at <strong>Internee.pk</strong>,
           based in Multan, Pakistan.
         </p>
         <div class="hero-btns">
-          <a href="#projects" class="btn-primary">View my work</a>
-          <a href="https://github.com/farhan-android" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-outline">Let's Talk →</a>
+          <a href="assets/Farhan_Ali_CV.pdf" download class="btn-outline">Download CV ↓</a>
+          <a href="https://github.com/farhan-android" target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Internships</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">Flutter</span>
+            <span class="stat-label">Primary Stack</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">Multan</span>
+            <span class="stat-label">Based In, PK</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-terminal" role="img" aria-label="Terminal window showing a simulated build log">
-        <div class="terminal-bar">
-          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-          <span class="terminal-title">farhan@dev — zsh</span>
+      <div class="hero-mockup" aria-hidden="true">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-profile-row">
+              <div class="phone-avatar">FA</div>
+              <div class="phone-profile-text">
+                <strong>Farhan Ali</strong>
+                <span class="phone-available"><span class="dot-live small"></span> Available</span>
+              </div>
+            </div>
+            <div class="phone-badges">
+              <div class="phone-badge"><span>6+</span>Projects</div>
+              <div class="phone-badge"><span>2</span>Interns</div>
+              <div class="phone-badge"><span>5+</span>Tech</div>
+            </div>
+            <div class="phone-latest">
+              <div class="phone-latest-icon">🧾</div>
+              <div class="phone-latest-text">
+                <strong>Latest Project</strong>
+                <span>Expense Tracker · Full Stack</span>
+              </div>
+              <span class="phone-live-pill">Live</span>
+            </div>
+            <div class="phone-tags">
+              <span>Flutter</span><span>Dart</span><span>Firebase</span><span>Node.js</span>
+            </div>
+            <div class="phone-code">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <pre>class FarhanApp extends
+  Widget build(ctx) {
+    return App(
+      theme: dark,</pre>
+            </div>
+            <div class="phone-cta">Hire Me 🚀</div>
+          </div>
         </div>
-        <pre class="terminal-body" id="terminalBody" aria-hidden="true"></pre>
       </div>
     </div>
   </section>
-
-  <hr class="divider">
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="section">
     <div class="section-inner">
-      <div class="section-eyebrow">~/about</div>
-      <h2 class="section-title">About <span>me</span></h2>
+      <span class="eyebrow">WHO I AM</span>
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        I'm a Flutter developer who recently graduated with a BS in Information
+        Technology from the University of Education, Lahore. I focus on building
+        real, working apps — from UI to backend — using Flutter, Dart, Riverpod
+        and Firebase.
+      </p>
+      <p class="about-text">
+        I've since expanded into backend development with Node.js, Express and
+        PostgreSQL, so I can design and build the API layer behind my own apps
+        instead of only consuming one. My Expense Tracker app pairs a Flutter +
+        Riverpod frontend with a backend I wrote myself.
+      </p>
+      <p class="about-text">
+        I'm currently a Flutter Developer Intern at Internee.pk, working through
+        a series of hands-on tasks — authentication systems, real-time
+        dashboards, and role-based apps — and actively looking for full-time
+        opportunities.
+      </p>
+    </div>
+  </section>
 
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I'm an Android &amp; Flutter developer who recently graduated with a
-            BS in Information Technology from the University of Education, Lahore.
-            My focus is building real, working apps — not just prototypes —
-            using Kotlin, Dart, and Firebase.</p>
-          <p>I've since expanded into backend development with Node.js, Express
-            and PostgreSQL, so I can build and reason about a product end to
-            end, not just the client side.</p>
-          <p>I'm currently a Flutter Developer Intern at Internee.pk, and
-            actively looking for full-time opportunities.</p>
+  <!-- TECH STACK -->
+  <section id="stack" class="section">
+    <div class="section-inner">
+      <span class="eyebrow">TECH STACK</span>
+      <h2 class="section-title">Tools I Work With</h2>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><span>🦋</span>Flutter</div>
+        <div class="stack-badge"><span>🎯</span>Dart</div>
+        <div class="stack-badge"><span>⚡</span>Riverpod</div>
+        <div class="stack-badge"><span>🔥</span>Firebase</div>
+        <div class="stack-badge"><span>🟢</span>Node.js</div>
+        <div class="stack-badge"><span>🚂</span>Express.js</div>
+        <div class="stack-badge"><span>🐘</span>PostgreSQL</div>
+        <div class="stack-badge"><span>🔗</span>REST API</div>
+        <div class="stack-badge"><span>🧪</span>Postman</div>
+        <div class="stack-badge"><span>✂️</span>Git &amp; GitHub</div>
+        <div class="stack-badge"><span>📱</span>Android Studio</div>
+        <div class="stack-badge"><span>💻</span>VS Code</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section-inner">
+      <span class="eyebrow">SKILLS &amp; EXPERTISE</span>
+      <h2 class="section-title">What I'm Good At</h2>
+
+      <div class="skills-list">
+        <div class="skill-row">
+          <div class="skill-top"><span>Flutter &amp; Dart</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
         </div>
-
-        <div class="about-stats">
-          <div class="stat-card">
-            <span class="stat-num">3+</span>
-            <span class="stat-label">Projects shipped</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">Flutter</span>
-            <span class="stat-label">Primary framework</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">Node.js</span>
-            <span class="stat-label">Backend of choice</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num">Multan</span>
-            <span class="stat-label">Based in, PK</span>
-          </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Firebase &amp; Firestore</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>State Management (Riverpod)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>REST API Integration</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Node.js &amp; Express.js</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>PostgreSQL</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>UI/UX for Mobile</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-inner">
+      <span class="eyebrow">MY JOURNEY</span>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-sub">Hands-on experience building real apps as part of internships and personal projects.</p>
+
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>Flutter Developer Intern</h3>
+            <span class="pill-current">Current</span>
+          </div>
+          <div class="timeline-meta">Internee.pk · Remote, Pakistan · 2026 – Present</div>
+          <ul class="timeline-list">
+            <li>Building a series of production-style Flutter apps: an LMS learning platform and a role-based feedback &amp; review system.</li>
+            <li>Implementing Firebase Authentication, Firestore real-time streams, and Riverpod state management from scratch.</li>
+            <li>Following clean, feature-based architecture the way software houses structure real projects.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>Android Developer Intern</h3>
+          </div>
+          <div class="timeline-meta">The Net Rider Software House · 2025</div>
+          <ul class="timeline-list">
+            <li>Built Android features using Kotlin and the MVVM architecture pattern.</li>
+            <li>Integrated Firebase and REST APIs into existing Android applications.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="projects" class="section">
     <div class="section-inner">
-      <div class="section-eyebrow">~/projects</div>
-      <h2 class="section-title">Selected <span>work</span></h2>
-      <p class="section-note">Loaded from <code>data/projects.json</code> via <code>fetch()</code> — not hardcoded into the page.</p>
+      <span class="eyebrow">PORTFOLIO</span>
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-sub">Apps built through internship tasks, coursework and self-directed learning.</p>
+
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="All">All</button>
+        <button class="filter-tab" data-filter="Mobile">Mobile</button>
+        <button class="filter-tab" data-filter="Backend">Backend</button>
+      </div>
 
       <div class="projects-grid" id="projectsGrid">
         <!-- Populated by script.js -->
@@ -113,57 +268,15 @@
     </div>
   </section>
 
-  <hr class="divider">
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <div class="section-eyebrow">~/skills</div>
-      <h2 class="section-title">What I <span>work with</span></h2>
-
-      <div class="skills-columns">
-        <div class="skills-group">
-          <h3>Mobile</h3>
-          <ul class="skill-list">
-            <li>Flutter &amp; Dart</li>
-            <li>Kotlin / Android</li>
-            <li>Riverpod &amp; GetX</li>
-            <li>Firebase Auth &amp; Firestore</li>
-          </ul>
-        </div>
-        <div class="skills-group">
-          <h3>Backend</h3>
-          <ul class="skill-list">
-            <li>Node.js</li>
-            <li>Express.js</li>
-            <li>PostgreSQL</li>
-            <li>REST API design</li>
-          </ul>
-        </div>
-        <div class="skills-group">
-          <h3>Tooling</h3>
-          <ul class="skill-list">
-            <li>Git &amp; GitHub</li>
-            <li>Android Studio / VS Code</li>
-            <li>Postman</li>
-            <li>Figma (UI handoff)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="section">
     <div class="section-inner">
-      <div class="section-eyebrow">~/contact</div>
-      <h2 class="section-title">Let's <span>build something</span></h2>
-      <p class="section-note">This page is static, so the form below opens your email client directly with your message pre-filled — nothing is sent to a server.</p>
+      <span class="eyebrow">GET IN TOUCH</span>
+      <h2 class="section-title">Let's Build Something</h2>
+      <p class="section-sub">I'm actively looking for Flutter &amp; full-stack opportunities. Fill this out and it comes straight to my inbox.</p>
 
       <div class="contact-grid">
-        <form id="contactForm" class="contact-form" novalidate>
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mrpzewpz" method="POST" novalidate>
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -176,7 +289,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-primary" id="submitBtn">Send message</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Send Message</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
 
@@ -192,6 +305,10 @@
           <a href="https://github.com/farhan-android" target="_blank" rel="noopener" class="contact-link">
             <span class="contact-link-label">GitHub</span>
             <span class="contact-link-value">github.com/farhan-android</span>
+          </a>
+          <a href="https://linkedin.com/in/farhan-ali-296346328" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">linkedin.com/in/farhan-ali</span>
           </a>
         </div>
       </div>

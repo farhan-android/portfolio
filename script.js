@@ -1,70 +1,46 @@
-// script.js — terminal hero animation, static project loading, mailto contact form
+// script.js — typing name animation, project loading/filtering, mobile menu, mailto contact form
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Terminal typewriter ---------- */
-const terminalLines = [
-  { type: 'prompt', text: '$ whoami' },
-  { type: 'plain', text: 'farhan-ali — mobile & full-stack developer' },
-  { type: 'gap' },
-  { type: 'prompt', text: '$ flutter build apk --release' },
-  { type: 'muted', text: "Running Gradle task 'assembleRelease'..." },
-  { type: 'success', text: '✓ Built app-release.apk' },
-  { type: 'gap' },
-  { type: 'prompt', text: '$ cat data/projects.json | jq length' },
-  { type: 'success', text: '✓ 3 projects loaded' }
-];
-
-function renderLineHTML(line) {
-  if (line.type === 'gap') return '\n';
-  const cls = line.type === 'prompt' ? 'term-prompt'
-    : line.type === 'success' ? 'term-success'
-    : line.type === 'muted' ? 'term-muted'
-    : '';
-  return cls ? `<span class="${cls}">${line.text}</span>\n` : `${line.text}\n`;
-}
-
-async function typeTerminal() {
-  const el = document.getElementById('terminalBody');
+/* ---------- Typing name animation ---------- */
+async function typeName() {
+  const el = document.getElementById('typedName');
   if (!el) return;
+  const fullName = 'Farhan Ali';
 
   if (prefersReducedMotion) {
-    el.innerHTML = terminalLines.map(renderLineHTML).join('');
+    el.textContent = fullName;
     return;
   }
 
-  el.innerHTML = '<span class="term-cursor"></span>';
-  let output = '';
-
-  for (const line of terminalLines) {
-    if (line.type === 'gap') {
-      output += '\n';
-      el.innerHTML = output + '<span class="term-cursor"></span>';
-      await sleep(180);
-      continue;
-    }
-    const cls = line.type === 'prompt' ? 'term-prompt'
-      : line.type === 'success' ? 'term-success'
-      : line.type === 'muted' ? 'term-muted'
-      : '';
-    let typed = '';
-    const speed = line.type === 'prompt' ? 34 : 10;
-    for (const char of line.text) {
-      typed += char;
-      const wrapped = cls ? `<span class="${cls}">${typed}</span>` : typed;
-      el.innerHTML = output + wrapped + '<span class="term-cursor"></span>';
-      await sleep(speed);
-    }
-    output += (cls ? `<span class="${cls}">${line.text}</span>` : line.text) + '\n';
-    await sleep(160);
+  el.textContent = '';
+  for (const char of fullName) {
+    el.textContent += char;
+    await sleep(90);
   }
-
-  el.innerHTML = output + '<span class="term-cursor"></span>';
 }
 
 function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
 
-/* ---------- Projects (loaded from a static JSON file) ---------- */
+/* ---------- Mobile menu toggle ---------- */
+function setupMobileMenu() {
+  const burger = document.getElementById('navBurger');
+  const menu = document.getElementById('mobileMenu');
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => menu.classList.remove('open'));
+  });
+}
+
+/* ---------- Projects: load, render, filter ---------- */
+let allProjects = [];
+let activeFilter = 'All';
+
 async function loadProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
@@ -72,19 +48,30 @@ async function loadProjects() {
   try {
     const res = await fetch('data/projects.json');
     if (!res.ok) throw new Error('Request failed');
-    const projects = await res.json();
-
-    if (!Array.isArray(projects) || projects.length === 0) {
-      grid.innerHTML = '<div class="projects-empty">No projects yet.</div>';
-      return;
-    }
-
-    const sorted = [...projects].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-    grid.innerHTML = sorted.map(projectCardHTML).join('');
+    allProjects = await res.json();
+    renderProjects();
   } catch (err) {
     grid.innerHTML = '<div class="projects-error">Couldn\'t load projects.json.</div>';
     console.error(err);
   }
+}
+
+function renderProjects() {
+  const grid = document.getElementById('projectsGrid');
+  if (!grid) return;
+
+  const filtered = activeFilter === 'All'
+    ? allProjects
+    : allProjects.filter((p) => p.category === activeFilter);
+
+  const sorted = [...filtered].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+  if (sorted.length === 0) {
+    grid.innerHTML = '<div class="projects-empty">No projects in this category yet.</div>';
+    return;
+  }
+
+  grid.innerHTML = sorted.map(projectCardHTML).join('');
 }
 
 function projectCardHTML(p) {
@@ -92,16 +79,33 @@ function projectCardHTML(p) {
   const liveLink = p.live
     ? `<a href="${escapeHTML(p.live)}" target="_blank" rel="noopener" class="project-link">Live demo →</a>`
     : '';
+  const thumb = p.thumbnail
+    ? `<img class="project-thumb" src="${escapeHTML(p.thumbnail)}" alt="${escapeHTML(p.title)} screenshot" loading="lazy">`
+    : `<div class="project-thumb-placeholder">${escapeHTML(initials(p.title))}</div>`;
+
   return `
     <div class="project-card">
-      <div class="project-tagline">${escapeHTML(p.tagline || '')}</div>
-      <div class="project-title">${escapeHTML(p.title)}</div>
-      <p class="project-desc">${escapeHTML(p.description)}</p>
-      <div class="project-tags">${tags}</div>
-      <a href="${escapeHTML(p.github)}" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
-      ${liveLink}
+      ${thumb}
+      <div class="project-body">
+        <div class="project-tagline">${escapeHTML(p.tagline || '')}</div>
+        <div class="project-title">${escapeHTML(p.title)}</div>
+        <p class="project-desc">${escapeHTML(p.description)}</p>
+        <div class="project-tags">${tags}</div>
+        <a href="${escapeHTML(p.github)}" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        ${liveLink}
+      </div>
     </div>
   `;
+}
+
+function initials(title = '') {
+  return title
+    .split(' ')
+    .filter((w) => w.length > 0)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
 }
 
 function escapeHTML(str = '') {
@@ -111,14 +115,31 @@ function escapeHTML(str = '') {
     .replace(/>/g, '&gt;');
 }
 
-/* ---------- Contact form (mailto — no backend on a static site) ---------- */
+function setupFilterTabs() {
+  const tabsContainer = document.getElementById('filterTabs');
+  if (!tabsContainer) return;
+
+  tabsContainer.querySelectorAll('.filter-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabsContainer.querySelectorAll('.filter-tab').forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeFilter = tab.dataset.filter;
+      renderProjects();
+    });
+  });
+}
+
+/* ---------- Contact form (Formspree — real submission, no backend to host) ---------- */
 function setupContactForm() {
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
+  const btn = document.getElementById('submitBtn');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    status.textContent = '';
+    status.className = 'form-status';
 
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -130,18 +151,39 @@ function setupContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio message from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:farhanalifarhan57218140@gmail.com?subject=${subject}&body=${body}`;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
 
-    status.textContent = '$ opening your email client ✓';
-    status.className = 'form-status success';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        status.textContent = 'Message sent — thanks! I\'ll get back to you soon.';
+        status.className = 'form-status success';
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.errors?.[0]?.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      status.textContent = `Error: ${err.message}`;
+      status.className = 'form-status error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
   });
 }
 
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-  typeTerminal();
+  typeName();
+  setupMobileMenu();
   loadProjects();
+  setupFilterTabs();
   setupContactForm();
 });
