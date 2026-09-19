@@ -63,4 +63,4 @@ npx serve .
 ## Author
 
 **Farhan Ali** — Flutter Full-Stack Developer
-Multan, Pakistan · [github.com/farhan-android](https://github.com/farhan-android)
+Lahore, Pakistan · [github.com/farhan-android](https://github.com/farhan-android)
