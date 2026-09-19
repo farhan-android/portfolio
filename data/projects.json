@@ -2,14 +2,111 @@
   {
     "id": "expense-tracker-app",
     "title": "Expense Tracker App",
-    "tagline": "Full-Stack — Flutter + Node.js/Express/PostgreSQL",
-    "description": "A personal finance app with a Flutter + Riverpod frontend and a self-built Node.js, Express and PostgreSQL backend for syncing transactions and categories across devices.",
+    "tagline": "Full-Stack — Devixo Solutions Internship",
+    "description": "An offline-first expense manager with a Flutter + Riverpod frontend and a Node.js, Express and PostgreSQL backend. Includes JWT authentication, expense CRUD with categories and search, receipt image upload, push notifications and dark mode.",
     "category": "Backend",
-    "stack": ["Flutter", "Riverpod", "Node.js", "Express.js", "PostgreSQL", "REST API"],
-    "github": "https://github.com/farhan-android/expense-tracker-app",
+    "stack": [
+      "Flutter",
+      "Riverpod",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "JWT",
+      "Firebase Cloud Messaging"
+    ],
+    "github": "https://github.com/farhan-android/expense-management-app",
+    "live": "",
+    "thumbnail": "assets/projects/expense-app/thumb.jpeg",
+    "order": 1
+  },
+  {
+    "id": "expense-tracker-api",
+    "title": "Expense Tracker API",
+    "tagline": "Backend — REST API for the Expense Tracker",
+    "description": "The Node.js and Express REST API behind the Expense Tracker app: JWT authentication, expense CRUD, receipt image uploads through Cloudinary and push notifications via Firebase Admin, backed by PostgreSQL.",
+    "category": "Backend",
+    "stack": [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "JWT",
+      "Cloudinary",
+      "Firebase Admin"
+    ],
+    "github": "https://github.com/farhan-android/expense-tracker-backend",
     "live": "",
     "thumbnail": "",
-    "order": 1
+    "order": 2
+  },
+  {
+    "id": "job-portal-api",
+    "title": "Job Portal API",
+    "tagline": "Backend — REST API",
+    "description": "A REST API for a job portal covering user authentication, job postings, job applications and saved jobs, built with Express and Sequelize on PostgreSQL, with file uploads and email support.",
+    "category": "Backend",
+    "stack": [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Sequelize",
+      "JWT"
+    ],
+    "github": "https://github.com/farhan-android/job-portal-backend",
+    "live": "",
+    "thumbnail": "",
+    "order": 3
+  },
+  {
+    "id": "resume-builder-api",
+    "title": "Resume Builder AI API",
+    "tagline": "Backend — AI-powered API",
+    "description": "An Express backend for a resume builder that uses the Google Gemini API to generate a professional summary, polished skills and experience bullet points from a user's details, with automatic retries on failure.",
+    "category": "Backend",
+    "stack": [
+      "Node.js",
+      "Express.js",
+      "Google Gemini API",
+      "REST API"
+    ],
+    "github": "https://github.com/farhan-android/resume-builder-backend",
+    "live": "",
+    "thumbnail": "",
+    "order": 4
+  },
+  {
+    "id": "intern-management-app",
+    "title": "Intern Management System",
+    "tagline": "Internee.pk Internship — Final Task",
+    "description": "A role-based app where interns track assigned tasks and progress on a personal dashboard, while admins add interns, assign tasks and monitor team-wide stats in real time. Responsive across mobile, tablet and web.",
+    "category": "Mobile",
+    "stack": [
+      "Flutter",
+      "Riverpod",
+      "Firebase",
+      "Firestore"
+    ],
+    "github": "https://github.com/farhan-android/intern_management_app",
+    "live": "",
+    "thumbnail": "",
+    "order": 5
+  },
+  {
+    "id": "task-tracker-app",
+    "title": "Task Tracker App",
+    "tagline": "Internee.pk Internship",
+    "description": "A task management app for interns and admins with role-based access, real-time task status updates, admin task assignment, progress reports with charts and local notifications.",
+    "category": "Mobile",
+    "stack": [
+      "Flutter",
+      "Provider",
+      "Firebase",
+      "Firestore",
+      "fl_chart"
+    ],
+    "github": "https://github.com/farhan-android/Task-Tracker-Mobile-App",
+    "live": "",
+    "thumbnail": "",
+    "order": 6
   },
   {
     "id": "feedback-review-app",
@@ -17,11 +114,17 @@
     "tagline": "Internee.pk Internship — Task 2",
     "description": "A role-based feedback app — users submit ratings and reviews, while admins get a live dashboard with average ratings and a rating-distribution chart, all synced in real time through Firestore.",
     "category": "Mobile",
-    "stack": ["Flutter", "Riverpod", "Firebase", "Firestore", "fl_chart"],
+    "stack": [
+      "Flutter",
+      "Riverpod",
+      "Firebase",
+      "Firestore",
+      "fl_chart"
+    ],
     "github": "https://github.com/farhan-android/feedback-review-app",
     "live": "",
-    "thumbnail": "",
-    "order": 2
+    "thumbnail": "assets/projects/feedback-app/thumb.jpeg",
+    "order": 7
   },
   {
     "id": "lms-learning-app",
@@ -29,11 +132,17 @@
     "tagline": "Internee.pk Internship — Task 1",
     "description": "A Flutter learning management app with Firebase authentication, real-time course listings from Firestore, an integrated video player, and interactive quizzes with real-time scoring and progress tracking.",
     "category": "Mobile",
-    "stack": ["Flutter", "Riverpod", "Firebase", "Firestore", "REST API"],
+    "stack": [
+      "Flutter",
+      "Riverpod",
+      "Firebase",
+      "Firestore",
+      "REST API"
+    ],
     "github": "https://github.com/farhan-android/lms-learning-app",
     "live": "",
     "thumbnail": "assets/projects/lms-app/thumb.jpeg",
-    "order": 3
+    "order": 8
   },
   {
     "id": "fire-alert-system",
@@ -41,34 +150,84 @@
     "tagline": "Final Year Project",
     "description": "A zone-based fire detection system combining IoT sensors, YOLOv8 image recognition, and an Android app. Sends Twilio SMS alerts in real time and logs sensor data to Firebase.",
     "category": "Mobile",
-    "stack": ["Kotlin", "YOLOv8", "Firebase", "Twilio SMS", "IoT"],
-    "github": "https://github.com/farhan-android/my-android-app",
+    "stack": [
+      "Kotlin",
+      "YOLOv8",
+      "Firebase",
+      "Twilio SMS",
+      "IoT"
+    ],
+    "github": "https://github.com/farhan-android/Fire-Alert",
     "live": "",
     "thumbnail": "",
-    "order": 4
+    "order": 9
   },
   {
     "id": "notes-app",
     "title": "Notes App",
-    "tagline": "Flutter productivity app",
-    "description": "A minimalist notes app for quickly capturing and organizing ideas, with a clean interface and a dark mode toggle for comfortable use at any time of day.",
+    "tagline": "Devixo Solutions Internship — Task 3",
+    "description": "A secure notes app with Firebase Authentication and real-time Firestore sync, live search, image attachments, swipe-to-delete with confirmation, and a dark/light mode that is remembered between sessions.",
     "category": "Mobile",
-    "stack": ["Flutter", "Dart", "Local Storage"],
+    "stack": [
+      "Flutter",
+      "Riverpod",
+      "Firebase",
+      "Firestore"
+    ],
     "github": "https://github.com/farhan-android/notes-app",
     "live": "",
     "thumbnail": "assets/projects/notes-app/thumb.jpeg",
-    "order": 5
+    "order": 10
+  },
+  {
+    "id": "weather-forecast-app",
+    "title": "Weather Forecast App",
+    "tagline": "Devixo Solutions Internship — Task 2",
+    "description": "A weather app with a condition-based interface: city search, temperature, feels-like, humidity and wind, weather icons and gradients, error handling, recent searches and pull-to-refresh, using the Open-Meteo API.",
+    "category": "Mobile",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Open-Meteo API",
+      "REST API"
+    ],
+    "github": "https://github.com/farhan-android/weather_forecast_app",
+    "live": "",
+    "thumbnail": "",
+    "order": 11
+  },
+  {
+    "id": "student-profile-app",
+    "title": "Student Profile App",
+    "tagline": "Devixo Solutions Internship — Task 1",
+    "description": "A profile app with a splash screen and sections for skills, education, projects and tappable contact links, plus a light/dark theme that is remembered between sessions.",
+    "category": "Mobile",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Google Fonts",
+      "shared_preferences"
+    ],
+    "github": "https://github.com/farhan-android/student-profile-app",
+    "live": "",
+    "thumbnail": "assets/projects/student-profile-app/thumb.jpeg",
+    "order": 12
   },
   {
     "id": "weatherly",
     "title": "Weatherly",
     "tagline": "Weather forecast app",
-    "description": "A Flutter weather app built with GetX state management, pulling live forecasts from the OpenWeatherMap REST API with a clean, minimal interface.",
+    "description": "A modern Flutter weather app with city search, real-time temperature and conditions, a splash screen and a clean, responsive interface.",
     "category": "Mobile",
-    "stack": ["Flutter", "GetX", "REST API", "OpenWeatherMap"],
+    "stack": [
+      "Flutter",
+      "Dart",
+      "HTTP",
+      "Weather API"
+    ],
     "github": "https://github.com/farhan-android/Weatherly",
     "live": "",
     "thumbnail": "assets/projects/weather-app/thumb.jpeg",
-    "order": 6
+    "order": 13
   }
 ]
