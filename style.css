@@ -297,7 +297,12 @@ nav {
   text-align: center; background: linear-gradient(135deg, var(--accent), #FF8A00);
   color: #1A1200; font-weight: 700; font-size: 13px;
   padding: 12px; border-radius: 10px;
+  display: block; text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
+.phone-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,159,10,0.35); }
+.phone-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+#contact { scroll-margin-top: 70px; }
 
 @media (max-width: 900px) {
   .hero-inner { flex-direction: column; }

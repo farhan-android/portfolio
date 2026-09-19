@@ -129,6 +129,20 @@ function setupFilterTabs() {
   });
 }
 
+/* ---------- "Hire Me" button: jump to contact form, prefill a starter message ---------- */
+function setupHireMe() {
+  const btn = document.getElementById('hireMe');
+  const message = document.getElementById('message');
+  if (!btn || !message) return;
+
+  btn.addEventListener('click', () => {
+    if (!message.value.trim()) {
+      message.value = "Hi Farhan, I came across your portfolio and would like to discuss a Flutter / full-stack opportunity with you.";
+    }
+    setTimeout(() => message.focus({ preventScroll: true }), 700);
+  });
+}
+
 /* ---------- Contact form (Formspree — real submission, no backend to host) ---------- */
 function setupContactForm() {
   const form = document.getElementById('contactForm');
@@ -186,4 +200,5 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProjects();
   setupFilterTabs();
   setupContactForm();
+  setupHireMe();
 });
